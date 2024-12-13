@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de Réservation</title>
+    <link rel="stylesheet" href="reservation.css">
+</head>
+<body>
+
+    <div class="page-wrapper">
+        <!--header start -->
+        <header class="header">
+            <div class="container">
+                <nav class="nav">
+                    <div class="logo">
+                        <a href = "home.html"><img src="images/logo HD.png" alt="Menu des cultures"></a>
+                    </div>
+                    <ul>
+                        <li><a href="home.html">Home</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="">Reservation</a></li>
+                        <li><a href="#staff">Staff</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Formulaire de Réservation -->
+        <div class="form-container">
+            <h2>Réservez une Table</h2>
+            <form id="reservationForm" action="resrvation.php" method="post">
+                <!-- Champ Nom -->
+                <label for="nom">Nom Complet :</label>
+                <input type="text" id="nom" name="nom" placeholder="Votre nom complet" >
+                <!-- Champ CIN -->
+                <label for="cin">CIN :</label>
+                <input type="text" id="cin" name="cin" placeholder="Votre CIN">
+                
+                <!-- Liste déroulante Cuisine -->
+                <label for="cuisine">Cuisine choisi :</label>
+                <select id="cuisine" name="cuisine" required>
+                    <option value="" disabled selected>Choisissez une cuisine</option>
+                    <option value="mexicain" <?php if ($cuisine == "mexicain") echo "selected"; ?>>Mexicain</option>
+                    <option value="marocain" <?php if ($cuisine == "marocain") echo "selected"; ?>>Marocain</option>
+                    <option value="japonais" <?php if ($cuisine == "japonais") echo "selected"; ?>>Japonais</option>
+                    <option value="italien" <?php if ($cuisine == "italien") echo "selected"; ?>>Italien</option>
+                    <option value="chinois" <?php if ($cuisine == "chinois") echo "selected"; ?>>Chinois</option>
+                </select>
+                
+                <!-- Champ Nombre de Places -->
+                <label for="places">Nombre de tables :</label>
+                <input type="number" id="places" name="places" min="1" max="10" placeholder="Exemple : 2" 
+                <!-- Champ Date -->
+                <label for="date">Date :</label>
+                <input type="date" id="date" name="date" 
+                
+                <!-- Boutons -->
+                <div class="buttons">
+                    <button type="reset" id="resetButton">Réinitialiser</button>
+                    <button type="submit" id="reserveButton">Réserver</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="reservation.js"></script>
+</body>
+</html>
